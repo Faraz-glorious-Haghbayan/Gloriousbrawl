@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1e1e1e; /* Dark background */
+    color: #ffffff; /* White text for contrast */
+}
+
+.container {
+    max-width: 800px; /* Max width for container */
+    margin: 20px auto; /* Centering the container */
+    padding: 20px; /* Padding around the content */
+    background-color: #282828; /* Slightly lighter background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.header {
+    text-align: center; /* Center the header text */
+    margin-bottom: 20px; /* Space below header */
+}
+
+.content {
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Column layout */
+    align-items: center; /* Center items horizontally */
+}
+
+.brawler-image {
+    position: relative; /* Position relative for pseudo-element */
+    max-width: 80%;
+    max-height: 60vh;
+    margin:auto; /* Responsive image */
+    display: block;
+    padding: 2px 50px;
+    border-radius: 8px; /* Rounded corners for image */
+    overflow: hidden; /* Hide overflow for glitch effect */
+}
+
+.brawler-image::before {
+    content: ""; /* Pseudo-element for glitch effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://preview.redd.it/iapqmzd3zu721.jpg?width=1080&crop=smart&auto=webp&s=7508eff6f99e455258950e07bf0560e9a039c384");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.6); /* Darken background image */
+    z-index: 1; /* Ensure it stays behind the image */
+    animation: glitchBackground 1.5s infinite; /* Animate glitch */
+}
+
+.brawler-image img {
+    position: relative; /* Position image above the glitch overlay */
+    z-index: 2; /* Ensure the image is above the glitch */
+}
+
+@keyframes glitchBackground {
+    0% {
+        transform: translate(0); /* Start in place */
+    }
+    20% {
+        transform: translate(-2px, -2px); /* Move up-left */
+    }
+    40% {
+        transform: translate(2px, 2px); /* Move down-right */
+    }
+    60% {
+        transform: translate(-2px, 2px); /* Move down-left */
+    }
+    80% {
+        transform: translate(2px, -2px); /* Move up-right */
+    }
+    100% {
+        transform: translate(0); /* Back to start */
+    }
+}
+
+
+
+
+
+.stats {
+    width: 100%; /* Full width for stats */
+    margin-top: 20px; /* Space above stats */
+}
+
+h2 {
+    text-align: center; /* Center stats heading */
+    margin-bottom: 15px; /* Space below heading */
+}
+
+/* Glitch effect for the 8-Bit Stats heading */
+.header h1 {
+    font-size: 3em;
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    overflow: hidden;
+    animation: glitch 2s infinite;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Layers for the glitch effect */
+.header h1::before,
+.header h1::after {
+    content: "8-Bit Stats";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    color: #f00;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+}
+
+.header h1::before {
+    left: 2px;
+    text-shadow: -2px 0 #0ff;
+    animation: glitchBefore 2s infinite linear alternate-reverse;
+}
+
+.header h1::after {
+    left: -2px;
+    text-shadow: -2px 0 #ff00ff;
+    animation: glitchAfter 2s infinite linear alternate-reverse;
+}
+
+/* Glitch keyframes */
+@keyframes glitch {
+    0% {
+        text-shadow: 1px 1px #ff00ff, -1px -1px #00ffff;
+    }
+    25% {
+        text-shadow: 3px 3px #ff00ff, -3px -3px #00ffff;
+    }
+    50% {
+        text-shadow: -1px -1px #ff00ff, 1px 1px #00ffff;
+    }
+    75% {
+        text-shadow: -3px -3px #ff00ff, 3px 3px #00ffff;
+    }
+    100% {
+        text-shadow: 1px 1px #ff00ff, -1px -1px #00ffff;
+    }
+}
+
+@keyframes glitchBefore {
+    0% {
+        clip: rect(24px, 9999px, 28px, 0);
+    }
+    25% {
+        clip: rect(12px, 9999px, 14px, 0);
+    }
+    50% {
+        clip: rect(30px, 9999px, 34px, 0);
+    }
+    75% {
+        clip: rect(8px, 9999px, 10px, 0);
+    }
+    100% {
+        clip: rect(20px, 9999px, 22px, 0);
+    }
+}
+
+@keyframes glitchAfter {
+    0% {
+        clip: rect(30px, 9999px, 34px, 0);
+    }
+    25% {
+        clip: rect(8px, 9999px, 12px, 0);
+    }
+    50% {
+        clip: rect(16px, 9999px, 20px, 0);
+    }
+    75% {
+        clip: rect(24px, 9999px, 28px, 0);
+    }
+    100% {
+        clip: rect(12px, 9999px, 16px, 0);
+    }
+}
+
+
+
+.stat {
+    margin-bottom: 15px; /* Space between stats */
+}
+
+label {
+    display: block; /* Block display for labels */
+    font-weight: bold; /* Bold labels */
+    margin-bottom: 5px; /* Space below label */
+}
+
+meter {
+    width: 100%; /* Full width for meter */
+    height: 20px; /* Height of the meter */
+    border-radius: 5px; /* Rounded corners for meter */
+    background-color: #444; /* Background color for the meter */
+}
+
+/* Optional: Custom styling for the meter appearance */
+meter::-webkit-meter-optimum-value {
+    background: #00df16; /* Good range color */
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: #ff8800; /* Warning range color */
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #ff1c1c; /* Poor range color */
+}
+
+/* Styles for better appearance on hover */
+meter:hover {
+    outline: 2px solid #76c7c0; /* Outline on hover */
+}
+
+.backbutton {
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+.backbutton button {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.backbutton button:hover {
+    background-color: #ff0000; /* Darker green on hover */
+    transform: translateY(-2px);
+}
+
+.backbutton button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Less padding on small screens */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Responsive heading size */
+    }
+    .brawler-image img{
+        display: block;
+        height: 20vh;
+        width: 100%;
+    }
+}
+
+
+
